@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #020617;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.network-connection {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-dasharray: 7 9;
+  stroke-linecap: round;
+}
+
+.network-connection--active {
+  stroke: rgba(100, 116, 139, 0.85);
+}
+
+.network-connection--failed {
+  stroke: rgba(100, 116, 139, 0.28);
+  stroke-dasharray: 3 10;
+}
+
+.network-connection--bypass {
+  stroke: rgba(52, 211, 153, 0.85);
+  stroke-width: 3;
+}
+
+.network-connection--flowing {
+  animation: ring-flow 1.4s linear infinite;
+}
+
+@keyframes ring-flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .network-connection--flowing {
+    animation: none;
+  }
+}
